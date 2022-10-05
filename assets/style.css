@@ -1,0 +1,143 @@
+:root{
+    --font-color: #63549e;
+    --dark-color: #6945f5;
+    --bg-color: #eeecf7;
+}
+*{
+    margin:0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+    min-height:100vh;
+    background-color: var(--bg-color);
+}
+.start-screen-wrapper{
+    min-height:90vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.start-screen{
+    text-align: center;
+    max-width:50%;
+    min-width:400px;
+}
+.start-screen > h1 {
+    color:var(--font-color);
+    font-size:3.50em;
+    text-align:center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-bottom:20px;
+}
+.start-screen > p {
+    color:var(--font-color);
+    font-size:1.50em;
+    margin-bottom:30px;
+}
+.start-screen > button {
+    font-size:1.175em;
+    background-color: var(--font-color);
+    border:none;
+    border-radius:8px;
+    padding: 10px 30px 10px 30px;
+    color:white;
+}
+.container{
+    display:none;
+    min-height:90vh;
+}
+header{
+    position: sticky;
+    top: 0px;
+    width:100%;
+    display:flex;
+}
+header > navbar{
+    display:flex;
+    width:90%;
+    margin: 0 auto;
+    font-size:1.20em;
+    padding:16px;
+}
+navbar > a {
+    text-decoration: none;
+    color:var(--font-color);
+}
+a:hover{
+    text-decoration: underline;
+    color:var(--font-color);
+}
+.timer-display {
+    width:90%;
+    display:flex;
+    justify-content: end;
+    color:var(--font-color);
+}
+section{
+    width:100%;
+    border:1px soild red;
+    min-height:85vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.card{
+    width:40%;
+    min-width:400px;
+    margin: 0 auto;
+    border-radius:16px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0 1px 2px 0,
+    rgba(60, 64, 67, 0.15) 0 1px 3px 1px;
+    background-color: white;
+}
+.card-header{
+    border-top-right-radius: 16px;
+    border-top-left-radius: 16px;
+    padding:30px;
+    background-color: white;
+}
+.card-number{
+    text-align:center;
+    margin-bottom:10px;
+    font-weight:bold;
+    font-size:1.10em;
+    color:var(--font-color);
+}
+.card-question{
+    color:var(--font-color);
+    font-size:1.50em;
+    font-weight:bold;
+    margin:5px;
+    padding:20px;
+    text-indent: 5px;
+}
+.card-btn-container {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding:20px;
+    padding-top:30px;
+ 
+}
+.card-btn-container > button {
+    width:40%;
+    min-width:250px;
+    padding:20px;
+    margin:20px;
+    border-radius:8px;
+    border:none;
+    background-color: var(--bg-color);
+    font-size:1.20em;
+    color:var(--font-color);
+}
+.card-btn-container > button:hover{
+    background-color: #edecee;
+}
+.correct:hover{
+    border:2px solid #87ad7a;
+}
+.incorrect:hover{
+    border:2px solid #97776d;
+}
+
