@@ -44,10 +44,9 @@ let questions = [
         ]
     }
 ];
-
-let score = 0;
+let score;
 let secondsLeft = 60;
-let index = 1;
+let index = 0;
 let gameOver = false;
 let currentQuestion;
 
@@ -66,6 +65,28 @@ function hideStartScreen (){
     container.style.display = "block";
 }
 
+
+function selectAnswer (event){
+    let clickedBtn = event.target;
+    if(clickedBtn.dataset.correct === "true"){
+        console.log("Correct!");
+        incrementIndex();
+        getCurrentQuestion();
+        renderCard();
+    }else if(clickedBtn.dataset.correct === "false"){
+        console.log("Incorrect!");
+        incrementIndex();
+        getCurrentQuestion();
+        renderCard();
+    }
+}
+
+section.addEventListener("click", selectAnswer);
+
+function incrementIndex () {
+    index++
+    console.log(index);
+}
 
 function getCurrentQuestion () {
    currentQuestion = questions[index];
@@ -92,29 +113,41 @@ function renderCard (){
     let cardHeader = document.createElement("div");
     let cardQuestion = document.createElement("div");
     let cardBtnContainer = document.createElement("div");
-    let question1 = document.createElement("button");
-    let question2 = document.createElement("button");
-    let question3 = document.createElement("button");
-    let question4 = document.createElement("button");
+    let answer1 = document.createElement("button");
+    let answer2 = document.createElement("button");
+    let answer3 = document.createElement("button");
+    let answer4 = document.createElement("button");
     
     card.className = "card";
     cardHeader.className = "card-header";
     cardQuestion.className = "card-question";
     cardBtnContainer.className = "card-btn-container";
 
+    
+
     cardQuestion.textContent = currentQuestion.question;
-    question1.textContent = currentQuestion.answers[0].choice;
-    question2.textContent = currentQuestion.answers[1].choice;
-    question3.textContent = currentQuestion.answers[2].choice;
-    question4.textContent = currentQuestion.answers[3].choice;
+    answer1.textContent = currentQuestion.answers[0].choice;
+    answer2.textContent = currentQuestion.answers[1].choice;
+    answer3.textContent = currentQuestion.answers[2].choice;
+    answer4.textContent = currentQuestion.answers[3].choice;
+
+    answer1.className = "answer";
+    answer2.className = "answer";
+    answer3.className = "answer";
+    answer4.className = "answer";
+
+    answer1.setAttribute("data-correct", currentQuestion.answers[0].correct);
+    answer2.setAttribute("data-correct", currentQuestion.answers[1].correct);
+    answer3.setAttribute("data-correct", currentQuestion.answers[2].correct);
+    answer4.setAttribute("data-correct", currentQuestion.answers[3].correct);
 
     card.appendChild(cardHeader);
     cardHeader.appendChild(cardNumber);
     cardHeader.appendChild(cardQuestion);
-    cardBtnContainer.appendChild(question1)
-    cardBtnContainer.appendChild(question2)
-    cardBtnContainer.appendChild(question3)
-    cardBtnContainer.appendChild(question4)
+    cardBtnContainer.appendChild(answer1)
+    cardBtnContainer.appendChild(answer2)
+    cardBtnContainer.appendChild(answer3)
+    cardBtnContainer.appendChild(answer4)
     card.appendChild(cardBtnContainer);
 
     section.appendChild(card);
@@ -122,7 +155,11 @@ function renderCard (){
 
 
 function endGame () {
-
+    if(!gameOver || index > 3){
+        console.log("The game is over!");
+        score = secondsLeft;
+        console.log(score);
+    }
 }
 
 startBtn.addEventListener("click", startGame);
