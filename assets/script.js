@@ -1,4 +1,5 @@
 let startScreen = document.querySelector(".start-screen-wrapper");
+let timerDisplay = document.querySelector(".timer-display");
 let container = document.getElementById("container");
 let section = document.querySelector("section");
 let startBtn = document.querySelector(".start-btn");
@@ -7,7 +8,7 @@ let btnContainer = document.querySelector(".card-btn-container");
 //Array of questions and their answer choices.
 let questions = [
     {
-        question: "Arrays in JavaScript can be used to store ______ .",
+        question: "Arrays in JavaScript can be used to store _____ .",
         answers: [
             { choice: "booleans", correct: false},
             { choice: "strings", correct: false},
@@ -16,7 +17,7 @@ let questions = [
         ]
     }, 
     {
-        question: "The condition in an if/ else statement is enclosed within ______ .",
+        question: "The condition in an if/ else statement is enclosed within _____ .",
         answers: [
             { choice: "quotes", correct: false},
             { choice: "curly brackets", correct: false},
@@ -25,7 +26,7 @@ let questions = [
         ]
     },
     {
-        question: "A very useful tool used during development and debugging for printing content to the debugger is ______ . ",
+        question: "A very useful tool used during development and debugging for printing content to the debugger is _____ . ",
         answers: [
             { choice: "JavaScript", correct: false},
             { choice: "console.log", correct: true},
@@ -38,18 +39,22 @@ let questions = [
         answers: [
             { choice: "early and often", correct: true},
             { choice: "never", correct: false},
-            { choice: "only when you complete your project", correct: false},
+            { choice: "once a month", correct: false},
             { choice: "twice a week", correct: false}
         ]
     }
 ];
-console.log(questions[0].question)
+
 let score = 0;
-let index = 0;
+let secondsLeft = 60;
+let index = 1;
+let gameOver = false;
+let currentQuestion;
 
 function startGame (){
 
     hideStartScreen();
+    setTime();
     getCurrentQuestion();
     renderCard();
   
@@ -61,14 +66,25 @@ function hideStartScreen (){
     container.style.display = "block";
 }
 
-let currentQuestion;
-
 
 function getCurrentQuestion () {
    currentQuestion = questions[index];
 }
+
+function setTime(){
+    let timerInterval = setInterval(function(){
+        secondsLeft--;
+        timerDisplay.textContent = "Timer: " + secondsLeft;
+
+        if(secondsLeft === 0){
+            clearInterval(timerInterval);
+            gameOver = true;
+        }
+    }, 1000)
+}
+
 function renderCard (){
-    
+
     section.textContent = "";
 
     let card = document.createElement("div");
