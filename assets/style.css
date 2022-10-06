@@ -81,6 +81,7 @@ section{
     display:flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 .card{
     width:40%;
@@ -134,6 +135,7 @@ section{
 .card-btn-container > button:hover{
     background-color: #edecee;
 }
+
 .correct:hover{
     border:2px solid #87ad7a;
 }
