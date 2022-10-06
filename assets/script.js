@@ -45,10 +45,17 @@ let questions = [
         ]
     },
     {
+        question: "Which of the following is an example of a closing tag?",
+        answers: [
+            {choice: "<html>", correct: false},
+            {choice: "</div>", correct: true},
+            {choice: "span", correct: false},
+            {choice: "<br>", correct: false}
+        ]
 
     }
 ];
-let score;
+let highscore;
 let secondsLeft = 60;
 let index = 0;
 let gameOver = false;
@@ -60,7 +67,7 @@ function startGame (){
     setTime();
     getCurrentQuestion();
     renderCard();
-  
+
 }
 
 function hideStartScreen (){
@@ -77,13 +84,14 @@ function selectAnswer (event){
         incrementIndex();
         getCurrentQuestion();
         renderCard();
-        displayResult(event);
+        displayMessage(event);
     }else if(clickedBtn.dataset.correct === "false"){
         console.log("Incorrect!");
+        secondsLeft = secondsLeft - 10;
         incrementIndex();
         getCurrentQuestion();
         renderCard();
-        displayResult(event);
+        displayMessage(event);
     }
 }
 
@@ -101,65 +109,98 @@ function getCurrentQuestion () {
 function setTime(){
     let timerInterval = setInterval(function(){
         secondsLeft--;
+        highscore = secondsLeft;
         timerDisplay.textContent = "Timer: " + secondsLeft;
 
         if(secondsLeft === 0){
             clearInterval(timerInterval);
             gameOver = true;
+            endGame();
+            console.log(gameOver);
+        }else if(index === 5){
+            clearInterval(timerInterval);
+        }else if(secondsLeft < 0){
+            clearInterval(timerInterval);
+            timerDisplay.textContent = "Timer: " + 0;
         }
     }, 1000)
 }
 
 function renderCard (){
+    if(index < 5){
+        section.textContent = "";
 
-    section.textContent = "";
-
-    let card = document.createElement("div");
-    let cardNumber = document.createElement("div");
-    let cardHeader = document.createElement("div");
-    let cardQuestion = document.createElement("div");
-    let cardBtnContainer = document.createElement("div");
-    let answer1 = document.createElement("button");
-    let answer2 = document.createElement("button");
-    let answer3 = document.createElement("button");
-    let answer4 = document.createElement("button");
+        let card = document.createElement("div");
+        let cardNumber = document.createElement("div");
+        let cardHeader = document.createElement("div");
+        let cardQuestion = document.createElement("div");
+        let cardBtnContainer = document.createElement("div");
+        let answer1 = document.createElement("button");
+        let answer2 = document.createElement("button");
+        let answer3 = document.createElement("button");
+        let answer4 = document.createElement("button");
+        
+        card.className = "card";
+        cardHeader.className = "card-header";
+        cardQuestion.className = "card-question";
+        cardBtnContainer.className = "card-btn-container";
     
-    card.className = "card";
-    cardHeader.className = "card-header";
-    cardQuestion.className = "card-question";
-    cardBtnContainer.className = "card-btn-container";
-
+        
     
+        cardQuestion.textContent = currentQuestion.question;
+        answer1.textContent = currentQuestion.answers[0].choice;
+        answer2.textContent = currentQuestion.answers[1].choice;
+        answer3.textContent = currentQuestion.answers[2].choice;
+        answer4.textContent = currentQuestion.answers[3].choice;
+    
+        answer1.className = "answer";
+        answer2.className = "answer";
+        answer3.className = "answer";
+        answer4.className = "answer";
+    
+        answer1.setAttribute("data-correct", currentQuestion.answers[0].correct);
+        answer2.setAttribute("data-correct", currentQuestion.answers[1].correct);
+        answer3.setAttribute("data-correct", currentQuestion.answers[2].correct);
+        answer4.setAttribute("data-correct", currentQuestion.answers[3].correct);
+    
+        card.appendChild(cardHeader);
+        cardHeader.appendChild(cardNumber);
+        cardHeader.appendChild(cardQuestion);
+        cardBtnContainer.appendChild(answer1)
+        cardBtnContainer.appendChild(answer2)
+        cardBtnContainer.appendChild(answer3)
+        cardBtnContainer.appendChild(answer4)
+        card.appendChild(cardBtnContainer);
+    
+        section.appendChild(card);
+    
+    }else if(index === 5 || secondsLeft === true){
 
-    cardQuestion.textContent = currentQuestion.question;
-    answer1.textContent = currentQuestion.answers[0].choice;
-    answer2.textContent = currentQuestion.answers[1].choice;
-    answer3.textContent = currentQuestion.answers[2].choice;
-    answer4.textContent = currentQuestion.answers[3].choice;
+        section.textContent = "";
 
-    answer1.className = "answer";
-    answer2.className = "answer";
-    answer3.className = "answer";
-    answer4.className = "answer";
+        let card = document.createElement("div");
+        let cardHeader = document.createElement("div");
+        let cardEndMessage = document.createElement("div");
+        let cardScore = document.createElement("p");
+        let cardForm = document.createElement("input")
 
-    answer1.setAttribute("data-correct", currentQuestion.answers[0].correct);
-    answer2.setAttribute("data-correct", currentQuestion.answers[1].correct);
-    answer3.setAttribute("data-correct", currentQuestion.answers[2].correct);
-    answer4.setAttribute("data-correct", currentQuestion.answers[3].correct);
+        card.className = "card";
+        cardHeader.className = "card-header";
+        cardEndMessage.className = "card-question";
+        cardScore.className = "card-score";
 
-    card.appendChild(cardHeader);
-    cardHeader.appendChild(cardNumber);
-    cardHeader.appendChild(cardQuestion);
-    cardBtnContainer.appendChild(answer1)
-    cardBtnContainer.appendChild(answer2)
-    cardBtnContainer.appendChild(answer3)
-    cardBtnContainer.appendChild(answer4)
-    card.appendChild(cardBtnContainer);
+        cardEndMessage.textContent = "Well done!"
+        cardScore.textContent = `Your final score was ${highscore}!`
 
-    section.appendChild(card);
+        card.appendChild(cardHeader);
+        cardHeader.appendChild(cardEndMessage);
+        card.appendChild(cardScore);
+        card.appendChild(cardForm);
 
+        section.appendChild(card);
+    }
 }
-function displayResult (event){
+function displayMessage (event){
     let correctMessage = ["Good Job!", "This is too easy for you!", "Wow! Are you cheating?", "Nice! You should be the one testing me!", "Correct again!", "You're a genius!", "You're making Web Dev look easy!"]
     let incorrectMessage = ["Nice try!", "Close, but not close enough.", "Maybe this one will be easier.", "We all make mistakes.", "Take your time. You got this!", "Don't give up!", "No perfect score for you!"]
     if(event.target.dataset.correct === "true"){
@@ -170,10 +211,8 @@ function displayResult (event){
 }
 
 function endGame () {
-    if(!gameOver || index > 3){
-        console.log("The game is over!");
-        score = secondsLeft;
-        console.log(score);
+    if(!gameOver){
+        renderCard();
     }
 }
 
