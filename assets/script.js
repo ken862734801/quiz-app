@@ -2,6 +2,7 @@ let startScreen = document.querySelector(".start-screen-wrapper");
 let timerDisplay = document.querySelector(".timer-display");
 let container = document.getElementById("container");
 let section = document.querySelector("section");
+let resultDisplay = document.querySelector(".result-display");
 let startBtn = document.querySelector(".start-btn");
 let btnContainer = document.querySelector(".card-btn-container");
 
@@ -42,6 +43,9 @@ let questions = [
             { choice: "once a month", correct: false},
             { choice: "twice a week", correct: false}
         ]
+    },
+    {
+
     }
 ];
 let score;
@@ -73,11 +77,13 @@ function selectAnswer (event){
         incrementIndex();
         getCurrentQuestion();
         renderCard();
+        displayResult(event);
     }else if(clickedBtn.dataset.correct === "false"){
         console.log("Incorrect!");
         incrementIndex();
         getCurrentQuestion();
         renderCard();
+        displayResult(event);
     }
 }
 
@@ -151,8 +157,17 @@ function renderCard (){
     card.appendChild(cardBtnContainer);
 
     section.appendChild(card);
-}
 
+}
+function displayResult (event){
+    let correctMessage = ["Good Job!", "This is too easy for you!", "Wow! Are you cheating?", "Nice! You should be the one testing me!", "Correct again!", "You're a genius!", "You're making Web Dev look easy!"]
+    let incorrectMessage = ["Nice try!", "Close, but not close enough.", "Maybe this one will be easier.", "We all make mistakes.", "Take your time. You got this!", "Don't give up!", "No perfect score for you!"]
+    if(event.target.dataset.correct === "true"){
+        resultDisplay.textContent = correctMessage[Math.floor(Math.random()*correctMessage.length)];
+    }if(event.target.dataset.correct === "false"){
+        resultDisplay.textContent = incorrectMessage[Math.floor(Math.random()*incorrectMessage.length)];
+    }
+}
 
 function endGame () {
     if(!gameOver || index > 3){
