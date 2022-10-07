@@ -8,6 +8,33 @@
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
+header{
+    position: sticky;
+    top: 0px;
+    width:100%;
+    display:flex;
+}
+header > navbar{
+    display:flex;
+    width:90%;
+    margin: 0 auto;
+    font-size:1.20em;
+    padding:16px;
+}
+navbar > a {
+    text-decoration: none;
+    color:var(--font-color);
+}
+a:hover{
+    text-decoration: underline;
+    color:var(--font-color);
+}
+.timer-display {
+    width:90%;
+    display:flex;
+    justify-content: end;
+    color:var(--font-color);
+}
 body{
     min-height:100vh;
     background-color: var(--bg-color);
@@ -43,39 +70,7 @@ body{
     padding: 10px 30px 10px 30px;
     color:white;
 }
-.container{
-    display:none;
-    min-height:90vh;
-}
-header{
-    position: sticky;
-    top: 0px;
-    width:100%;
-    display:flex;
-}
-header > navbar{
-    display:flex;
-    width:90%;
-    margin: 0 auto;
-    font-size:1.20em;
-    padding:16px;
-}
-navbar > a {
-    text-decoration: none;
-    color:var(--font-color);
-}
-a:hover{
-    text-decoration: underline;
-    color:var(--font-color);
-}
-.timer-display {
-    width:90%;
-    display:flex;
-    justify-content: end;
-    color:var(--font-color);
-}
-
-section{
+.quiz-screen-wrapper .hide{
     width:100%;
     border:1px soild red;
     min-height:80vh;
@@ -84,7 +79,7 @@ section{
     align-items: center;
     flex-direction: column;
 }
-.result-display{
+.message-display{
     width:100%;
     text-align: center;
     font-size:1.20em;
@@ -144,11 +139,53 @@ section{
 .card-btn-container > button:hover{
     background-color: #edecee;
 }
-
-.correct:hover{
-    border:2px solid #87ad7a;
+.card-header > h2{
+    color:var(--font-color);
+    font-size:2.25em;
+    margin-bottom:16px;
+    text-align: center;
 }
-.incorrect:hover{
-    border:2px solid #97776d;
+.card-header > p{
+    color:var(--font-color);
+    font-size:1.25em;
+    text-align: center;
+}
+.card-form{
+    color:var(--font-color);
+    font-size:1.25em;
+    padding:30px;
+    margin-top:-30px;
+}
+form{
+    display:flex;
+    flex-wrap: wrap;
+    max-width:600px;
+    margin: 0 auto;
+}
+form > div {
+    max-width:300px;
+    margin: 0 auto;
 }
 
+#username{
+    border:1px solid var(--font-color);
+    border-radius:4px;
+    padding:5px;
+    margin-top:10px;
+}
+#submit{
+    font-size:0.80em;
+    background-color: var(--font-color);
+    border:none;
+    border-radius:8px;
+    padding: 6px 10px 6px 10px;
+    color:white;
+    margin-top:10px;
+
+}
+.hide{
+    display:none;
+}
+.show{
+    display:block;
+}
