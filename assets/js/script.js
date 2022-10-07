@@ -156,24 +156,22 @@ const submitBtn = document.getElementById("submit");
 function getHighScore(){
     const initials = document.getElementById("initials").value;
     let playerScore = {player: initials, score: highscore};
+    
     console.log(playerScore)
     let savedScores = JSON.parse(localStorage.getItem("savedScores"));
 
     if(initials === ""){
-        alert("Fill in your initials to save your score.");
-    }
-    else{
-        if(savedScores !== null){
-            savedScores.push(playerScore);
+        alert("Fill in your initials to add your score to the leaderboard.");
+        return
+    }else if(savedScores !== null){
+        savedScores.push(playerScore);
             localStorage.setItem("savedScores",JSON.stringify(savedScores));
-        }else{
-            savedScores = [playerScore];
-            localStorage.setItem("savedScores", JSON.stringify(savedScores));
-        }
-    } 
+    }else{
+        savedScores = [playerScore];
+        localStorage.setItem("savedScores", JSON.stringify(savedScores));
+    }
         window.location.href = "./assets/leaderboard.html";
 };
-
 
 submitBtn.addEventListener("click", getHighScore);
 

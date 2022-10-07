@@ -8,6 +8,7 @@
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
+/* Styling for header and navbar begins here. */
 header{
     width:100%;
     display:flex;
@@ -37,6 +38,7 @@ body{
     min-height:100vh;
     background-color: var(--bg-color);
 }
+/* Styling for start screen begins here. */
 .start-screen-wrapper{
     min-height:90vh;
     display:flex;
@@ -68,6 +70,7 @@ body{
     padding: 10px 30px 10px 30px;
     color:white;
 }
+/* Styling for the quiz screen and the cards begins here. */
 .quiz-screen-wrapper .hide{
     width:100%;
     border:1px soild red;
@@ -148,6 +151,7 @@ body{
     font-size:1.25em;
     text-align: center;
 }
+/* Styling for the end screen and inputs starts here. */
 .card-form{
     color:var(--font-color);
     font-size:1.25em;
@@ -179,13 +183,15 @@ body{
 .show{
     display:block;
 }
+/* Leaderboard styling begins here */
 .leaderboard-container >h1 {
     text-align:center;
     color:var(--font-color);
-    font-size:3.5em;
+    font-size:3em;
+    margin-bottom:10px;
 }
 .leaderboard-list{
-    width:70%;
+    width:80%;
     margin: 0 auto;
     font-size:1.5em;
     min-width:400px;
@@ -198,16 +204,17 @@ body{
     justify-content: center;
 }
 .clear-button-container > button{
-    min-width:200px;
-    padding:10px;
+    min-width:175px;
+    padding:8px;
     margin:20px;
     border-radius:8px;
     border:none;
     background-color: var(--font-color);
-    font-size:1.20em;
+    font-size:1.10em;
     color:white;
 }
 li{
+    padding:10px;
     color:var(--font-color);
 }
 li:nth-child(odd){
