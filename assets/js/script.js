@@ -165,11 +165,12 @@ function getHighScore(){
     }else{
         savedScores = [playerScore];
         localStorage.setItem("savedScores", JSON.stringify(savedScores));
-        document.location.href = "./assets/leaderboard.html";
-
     }
+        window.location.href = "./assets/leaderboard.html";
 };
 
 
-
 submitBtn.addEventListener("click", getHighScore);
+
+
+
