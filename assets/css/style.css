@@ -251,6 +251,12 @@ li:nth-child(even){
 }
 /* Media Queries */
 @media screen and (max-width:420px){
+    .start-screen > h1{
+        font-size:2.5em;
+    }
+    .start-screen > p{
+        font: 1.20em;
+    }
     .quiz-screen > .card-header{
        padding:20px;
     }
