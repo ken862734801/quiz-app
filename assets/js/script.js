@@ -158,14 +158,17 @@ function getHighScore(){
     let savedScores = JSON.parse(localStorage.getItem("savedScores"));
 
     if(initials === ""){
-        alert("Fill in your initials to save your score.")
-    }else if(savedScores !== null){
-        savedScores.push(playerScore);
-        localStorage.setItem("savedScores",JSON.stringify(savedScores));
-    }else{
-        savedScores = [playerScore];
-        localStorage.setItem("savedScores", JSON.stringify(savedScores));
+        alert("Fill in your initials to save your score.");
     }
+    else{
+        if(savedScores !== null){
+            savedScores.push(playerScore);
+            localStorage.setItem("savedScores",JSON.stringify(savedScores));
+        }else{
+            savedScores = [playerScore];
+            localStorage.setItem("savedScores", JSON.stringify(savedScores));
+        }
+    } 
         window.location.href = "./assets/leaderboard.html";
 };
 

@@ -15,7 +15,6 @@ function displayScoreOnLeaderboard(){
 function clearLeaderboard() {
     localStorage.removeItem("savedScores");
     document.location.reload();
-    console.log("clicking!")
 }
 
 displayScoreOnLeaderboard();
