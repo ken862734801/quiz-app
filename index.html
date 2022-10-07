@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
+        <meta charset="utf-8">
         <meta content="width=device-width, initial-scale=1" name="viewport"/>
         <link rel="stylesheet" href="./assets/css/style.css">
         <title>Quiz App</title>
@@ -13,6 +13,7 @@
                 <div class="timer-display">Timer: 60</div>
             </navbar>
         </header>
+
         <section class="start-screen-wrapper">
             <div class="start-screen">
                 <h1>Coding Quiz Challenge</h1>
@@ -22,10 +23,13 @@
                 <button class="start-btn">Start Quiz</button>
             </div>
         </section>
+
             <div class="message-display"></div>
+
         <section class="quiz-screen-wrapper">
             <div class="quiz-screen"></div>
         </section>
+
         <section class = "end-screen-wrapper hide">
             <div class="end-screen card">
                 <div class=card-header>
@@ -33,17 +37,16 @@
                     <p>Your final score is: <span id="highscore-display"></span> </p>
                 </div>
                 <div class="card-form">
-                    <form>
-                        <label for ="username" > Enter your username to add your score to the leaderboard. </label>
-                        <div>
-                            <input type="text" id="username">
-                            <input type="submit" id="submit">
-                        </div>
-                    </form>
+                    <div>
+                        <label for="initials">Enter initials: </label>
+                        <input type="text" name="initials" id="initials"/>
+                        <button id="submit">Submit</button>
+                    </div>
                 </div>
             </div>
+            
         </section>
-        <script src="./assets/js/choices.js"></script>
         <script src="./assets/js/script.js"></script>
+        <script src="./assets/js/choices.js"></script>
     </body>
     </html>

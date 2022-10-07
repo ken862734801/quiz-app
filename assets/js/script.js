@@ -146,3 +146,14 @@ function displayMessage (event){
         messageDisplay.textContent = incorrectMessage[Math.floor(Math.random()*incorrectMessage.length)];
     }
 }
+
+
+const submitBtn = document.getElementById("submit");
+
+function getHighScores(){
+    const initials = document.getElementById("initials").value;
+    let playerScore = {player: initials, score: highscore};
+    console.log(playerScore)
+    let savedScores = JSON.parse(localStorage.getItem("savedScores"));
+    
+}

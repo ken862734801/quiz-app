@@ -156,18 +156,10 @@ body{
     padding:30px;
     margin-top:-30px;
 }
-form{
-    display:flex;
-    flex-wrap: wrap;
-    max-width:600px;
-    margin: 0 auto;
+.card-form > div{
+    text-align: center;
 }
-form > div {
-    max-width:300px;
-    margin: 0 auto;
-}
-
-#username{
+#initials{
     border:1px solid var(--font-color);
     border-radius:4px;
     padding:5px;
@@ -188,4 +180,9 @@ form > div {
 }
 .show{
     display:block;
+}
+.leaderboard-container >h1 {
+    text-align:center;
+    color:var(--font-color);
+    font-size:3.5em;
 }
