@@ -144,16 +144,32 @@ function displayMessage (event){
         messageDisplay.textContent = correctMessage[Math.floor(Math.random()*correctMessage.length)];
     }if(event.target.dataset.correct === "false"){
         messageDisplay.textContent = incorrectMessage[Math.floor(Math.random()*incorrectMessage.length)];
-    }
+    } 
 }
 
-
+//Variable for the submit button.
 const submitBtn = document.getElementById("submit");
 
-function getHighScores(){
+//Function to get the players score and initials through the input. 
+function getHighScore(){
     const initials = document.getElementById("initials").value;
     let playerScore = {player: initials, score: highscore};
     console.log(playerScore)
     let savedScores = JSON.parse(localStorage.getItem("savedScores"));
-    
-}
+
+    if(initials === ""){
+        alert("Fill in your initials to save your score.")
+    }else if(savedScores !== null){
+        savedScores.push(playerScore);
+        localStorage.setItem("savedScores",JSON.stringify(savedScores));
+    }else{
+        savedScores = [playerScore];
+        localStorage.setItem("savedScores", JSON.stringify(savedScores));
+        document.location.href = "./assets/leaderboard.html";
+
+    }
+};
+
+
+
+submitBtn.addEventListener("click", getHighScore);
