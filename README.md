@@ -1,16 +1,25 @@
 # quiz-app
-## Demo 
 
-https://ken862734801.github.io/password-generator/
+## Demo 
+https://ken862734801.github.io/quiz-app/
 
 ## Preview
-<img src="./assets/images/password-generator.jpeg">
+<img src="./assets/images/quiz-app-gif.gif">
+
+<img src="./assets/images/quiz-app-mobile.png">
+View on mobile
 
 ## Summary
 
-The goal of this assignment was to complete a password generator with the starter code given to us. 
+The goal of this assignment was to complete a quiz app with web API's based on the template given to us. 
 
-The requirements included the generated password being between 8 and 128 characters, and giving the user the option to include or exclude lowercase, uppercase, numeric, and special characters. Web API's, such as prompt and confirm, were used to gather user input to determine the characteristics wanted by the user in their password. I also used "If statements" to determine the logic if the characteristic was chosen (true) or not. 
+<img src="./assets/images/04-web-apis-homework-demo.gif">
+
+Looking back on this assignment, I feel as though more psuedocode and planning code have helped me avoid some of the headaches I came across. Laying out a flow for the quiz before hand would have made this alot easier. There are still some bugs that occur when the user answers too fast that I plan to come back and address but for now I am pleased with the result. This was also my first time implementing local storage, and it was a little rough. Now looking back on it, it really is as simple as "setting" and "getting" an object but I neglected to stringify the JSON, and that could have been avoided if I went through the documentation. I also used the setInterval function for the first time but that was relatively straight forward. 
+
 
 ### Features
-- Create a random password between 8 and 128 characters, with the ability to include or exclude lowercase, uppercase, numeric, or special characters.
+- Deduct points for wrong answers.
+- Local storage to record the user's initials and score.
+- Mobile responsive.
+- Randomized feedback depending on if the answer is correct or not.

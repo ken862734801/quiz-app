@@ -56,6 +56,7 @@ function setTime(){
     }, 1000)
 };
 
+//Function to create card.
 function renderCard (){
    if(index === 5){
     endQuiz();
@@ -117,6 +118,7 @@ function getCurrentQuestion () {
     currentQuestion = questions[index];
  };
 
+ //Function to deal with answer clicks.
  function selectAnswer (event){
     let clickedBtn = event.target;
     if(clickedBtn.dataset.correct === "true"){
