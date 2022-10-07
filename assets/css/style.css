@@ -144,6 +144,7 @@ body{
     color:var(--font-color);
     font-size:2.25em;
     margin-bottom:16px;
+    margin-top:10px;
     text-align: center;
 }
 .card-header > p{
@@ -152,6 +153,9 @@ body{
     text-align: center;
 }
 /* Styling for the end screen and inputs starts here. */
+.end-screen.card{
+    padding:20px;
+}
 .card-form{
     color:var(--font-color);
     font-size:1.25em;
@@ -160,22 +164,34 @@ body{
 }
 .card-form > div{
     text-align: center;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    max-width:400px;
+    margin: 0 auto;
+}
+label{
+    margin-bottom:10px;
 }
 #initials{
     border:1px solid var(--font-color);
     border-radius:4px;
     padding:5px;
-    margin-top:10px;
+    margin-top:20px;
+    max-width:200px;
+    margin: 0 auto;
 }
-#submit{
-    font-size:0.80em;
+div > #submit{
+    font-size:0.85em;
     background-color: var(--font-color);
     border:none;
     border-radius:8px;
-    padding: 6px 10px 6px 10px;
+    padding: 6px 14px 6px 14px;
     color:white;
     margin-top:10px;
-
+}
+button:hover{
+    cursor: pointer;
 }
 .hide{
     display:none;
@@ -191,10 +207,11 @@ body{
     margin-bottom:10px;
 }
 .leaderboard-list{
-    width:80%;
+    width:60%;
     margin: 0 auto;
     font-size:1.5em;
-    min-width:400px;
+    min-width:370px;
+    padding-left:10px;
 }
 
 .clear-button-container{
@@ -218,10 +235,8 @@ li{
     color:var(--font-color);
 }
 li:nth-child(odd){
-    color:var(--font-color);
     background-color: #cfc3ff;
 }
 li:nth-child(even){
-    color:var(--font-color);
     background-color: #dcd7ee;
 }

@@ -154,10 +154,10 @@ const submitBtn = document.getElementById("submit");
 
 //Function to get the players score and initials through the input. 
 function getHighScore(){
-    const initials = document.getElementById("initials").value;
+    let initials = document.getElementById("initials").value;
     let playerScore = {player: initials, score: highscore};
     
-    console.log(playerScore)
+    console.log(playerScore);
     let savedScores = JSON.parse(localStorage.getItem("savedScores"));
 
     if(initials === ""){
