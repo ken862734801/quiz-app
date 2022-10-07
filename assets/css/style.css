@@ -158,7 +158,7 @@ body{
 }
 
 .end-screen{
-    background-image: url(/assets/images/quiz-app-bg.png);
+    background-image: url(../images/quiz-background.png);
     background-size: cover;
     background-repeat: repeat;
 }
