@@ -14,6 +14,7 @@ let secondsLeft = 60;
 let index = 0;
 let currentQuestion;
 
+//Function to start quiz.
 function startQuiz (){
     hideStartScreen();
     setTime();
@@ -21,6 +22,7 @@ function startQuiz (){
     renderCard();
 };
 
+//Function to end quiz.
 function endQuiz (){
 
     endScreen.classList.remove("hide");
@@ -34,6 +36,7 @@ function hideStartScreen(){
     startScreen.style.display = "none";
 }
 
+//Function to set quiz timer.
 function setTime(){
     let timerInterval = setInterval(function(){
         secondsLeft--;

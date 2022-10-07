@@ -140,6 +140,10 @@ body{
 .card-btn-container > button:hover{
     background-color: #edecee;
 }
+/* Styling for the end screen and inputs starts here. */
+.end-screen > .card-header{
+    background-color: transparent;
+}
 .card-header > h2{
     color:var(--font-color);
     font-size:2.25em;
@@ -152,7 +156,12 @@ body{
     font-size:1.25em;
     text-align: center;
 }
-/* Styling for the end screen and inputs starts here. */
+
+.end-screen{
+    background-image: url(/assets/images/quiz-app-bg.png);
+    background-size: cover;
+    background-repeat: repeat;
+}
 .end-screen.card{
     padding:20px;
 }
@@ -239,4 +248,25 @@ li:nth-child(odd){
 }
 li:nth-child(even){
     background-color: #dcd7ee;
+}
+/* Media Queries */
+@media screen and (max-width:420px){
+    .quiz-screen > .card-header{
+       padding:20px;
+    }
+    .card-question{
+        font-size:1.35em;
+    }
+    .card-btn-container{
+        margin-top:-10px;
+    }
+    .card-btn-container > button {
+        padding:16px;
+    }
+    .end-screen{
+        background-image: none;
+    }
+    .card-header > h2{
+        font-size:1.75em;
+    }
 }
