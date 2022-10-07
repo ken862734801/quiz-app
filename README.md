@@ -4,7 +4,7 @@
 https://ken862734801.github.io/quiz-app/
 
 ## Preview
-<img src="./assets/images/quiz-app-gif.gif">
+<img src="./assets/images/quiz-app.gif">
 
 <img src="./assets/images/quiz-app-mobile.png" width="420" height="896">
 View on mobile
