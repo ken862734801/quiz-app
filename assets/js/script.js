@@ -1,6 +1,7 @@
 //DOM VARIABLES.
 let startScreen = document.querySelector(".start-screen-wrapper");
-let quizScreen = document.querySelector(".quiz-screen-wrapper");
+let quizScreenWrapper = document.querySelector(".quiz-screen-wrapper");
+let quizScreen = document.querySelector(".quiz-screen");
 let endScreen = document.querySelector(".end-screen-wrapper");
 let startBtn = document.querySelector(".start-btn");
 let timerDisplay = document.querySelector(".timer-display");
@@ -23,7 +24,7 @@ function startQuiz (){
 function endQuiz (){
 
     endScreen.classList.remove("hide");
-    quizScreen.classList.add("hide");
+    quizScreenWrapper.classList.add("hide");
     highscoreDisplay.textContent = highscore;
 }
 
