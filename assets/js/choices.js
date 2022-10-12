@@ -23,7 +23,7 @@ let questions = [
             { choice: "JavaScript", correct: false},
             { choice: "console.log", correct: true},
             { choice: "terminal", correct: false},
-            { choice: "GitHub Pages", correct: true}
+            { choice: "GitHub Pages", correct: false}
         ]
     },
     {
